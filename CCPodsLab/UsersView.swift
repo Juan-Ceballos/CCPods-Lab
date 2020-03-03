@@ -31,6 +31,9 @@ class UsersView: UIView {
     }
     
     private func setupUsersTableViewConstraints()   {
+        addSubview(usersTableView)
+        
+        usersTableView.translatesAutoresizingMaskIntoConstraints = false
         
     }
     
