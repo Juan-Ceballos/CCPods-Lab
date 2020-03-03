@@ -1,0 +1,6 @@
+framework module Pods_CCPodsLab {
+  umbrella header "Pods-CCPodsLab-umbrella.h"
+
+  export *
+  module * { export * }
+}
