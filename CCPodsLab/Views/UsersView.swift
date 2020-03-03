@@ -11,7 +11,7 @@ import SnapKit
 
 class UsersView: UIView {
 
-    private lazy var usersTableView: UITableView =  {
+    public lazy var usersTableView: UITableView =  {
         let tableView = UITableView()
         return tableView
     }()
@@ -27,14 +27,15 @@ class UsersView: UIView {
     }
     
     private func commonInit()   {
-        
+        setupUsersTableViewConstraints()
     }
     
     private func setupUsersTableViewConstraints()   {
         addSubview(usersTableView)
         
-        usersTableView.translatesAutoresizingMaskIntoConstraints = false
-        
+        usersTableView.snp.makeConstraints { (make) in
+            make.edges.bottom.top.left.right.equalTo(safeAreaLayoutGuide)
+        }
     }
     
 }

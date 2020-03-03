@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  UserDetailViewController.swift
 //  CCPodsLab
 //
 //  Created by Juan Ceballos on 3/3/20.
@@ -8,12 +8,10 @@
 
 import UIKit
 
-class UsersViewController: UIViewController {
+class UserDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-
 }
-
