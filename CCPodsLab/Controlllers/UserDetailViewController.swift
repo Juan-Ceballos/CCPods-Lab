@@ -10,8 +10,15 @@ import UIKit
 
 class UserDetailViewController: UIViewController {
 
+    let userDetailView = UserDetailView()
+    
+    override func loadView() {
+        view = userDetailView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
     }
 
 }

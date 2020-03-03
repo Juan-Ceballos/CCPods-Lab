@@ -22,6 +22,8 @@ class UsersViewController: UIViewController {
         usersView.usersTableView.register(UserCell.self, forCellReuseIdentifier: "userCell")
         usersView.usersTableView.dataSource = self
         usersView.usersTableView.delegate = self
+        self.title = "Users"
+        
     }
 
 
@@ -47,7 +49,8 @@ extension UsersViewController: UITableViewDataSource    {
 extension UsersViewController: UITableViewDelegate  {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        print("press")
+        navigationController?.pushViewController(UserDetailViewController(), animated: false)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
