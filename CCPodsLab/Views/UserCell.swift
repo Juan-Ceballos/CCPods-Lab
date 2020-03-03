@@ -33,8 +33,9 @@ class UserCell: UITableViewCell {
         commonInit()
     }
     
-    public func configureCell()    {
-
+    public func configureCell(user: User)    {
+        userNameLabel.text = user.name.first
+        userEmailLabel.text = user.email
     }
     
     private func commonInit()   {

@@ -53,6 +53,10 @@ class UserDetailView: UIView {
         commonInit()
     }
     
+    public func configureUI()    {
+        
+    }
+    
     private func commonInit()   {
         setupUserInfoStackViewConstraints()
     }
