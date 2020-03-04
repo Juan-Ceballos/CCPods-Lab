@@ -12,7 +12,7 @@ class UsersViewController: UIViewController {
 
     let usersView = UsersView()
     
-    var usersv = [User]()    {
+    var users = [User]()    {
         didSet  {
             DispatchQueue.main.async {
                 self.usersView.usersTableView.reloadData()
@@ -31,7 +31,6 @@ class UsersViewController: UIViewController {
         usersView.usersTableView.dataSource = self
         usersView.usersTableView.delegate = self
         setupUI()
-        print("heyaload")
         self.title = "Users"
         
     }
@@ -41,11 +40,9 @@ class UsersViewController: UIViewController {
             switch result   {
             case .failure(let appError):
                 print(appError)
-                print("heyboo")
             case .success(let users):
-                self.usersv = users
-                print(self.usersv)
-                print("heya")
+                self.users = users
+                print(self.users)
             }
         }
     }
@@ -55,7 +52,7 @@ class UsersViewController: UIViewController {
 
 extension UsersViewController: UITableViewDataSource    {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        usersv.count
+        users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -64,7 +61,7 @@ extension UsersViewController: UITableViewDataSource    {
                 fatalError()
         }
         
-        let user = usersv[indexPath.row]
+        let user = users[indexPath.row]
         cell.configureCell(user: user)
         
         return cell
@@ -77,11 +74,15 @@ extension UsersViewController: UITableViewDelegate  {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("press")
-        navigationController?.pushViewController(UserDetailViewController(), animated: false)
+        
+        let userDetailVC = UserDetailViewController()
+        navigationController?.pushViewController(userDetailVC, animated: false)
+        let user = users[indexPath.row]
+        userDetailVC.user = user
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        250
+        100
     }
     
 }

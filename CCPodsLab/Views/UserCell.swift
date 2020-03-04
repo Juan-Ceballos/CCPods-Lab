@@ -34,7 +34,7 @@ class UserCell: UITableViewCell {
     }
     
     public func configureCell(user: User)    {
-        userNameLabel.text = user.name.first
+        userNameLabel.text = "\(user.name.first) \(user.name.last)"
         userEmailLabel.text = user.email
     }
     

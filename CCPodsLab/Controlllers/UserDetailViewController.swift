@@ -12,6 +12,8 @@ class UserDetailViewController: UIViewController {
 
     let userDetailView = UserDetailView()
     
+    var user: User?
+    
     override func loadView() {
         view = userDetailView
     }
@@ -19,6 +21,17 @@ class UserDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        updateUI()
+        self.title = "User Info"
+    }
+    
+    func updateUI() {
+        guard let currentUser = user
+            else    {
+                fatalError()
+        }
+        
+        userDetailView.configureUI(user: currentUser)
     }
 
 }

@@ -13,7 +13,7 @@ class UserDetailView: UIView {
     
     public lazy var fullAdressLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 2
+        label.numberOfLines = 4
         label.text = "really long address example\nsecond part here"
         return label
     }()
@@ -53,8 +53,14 @@ class UserDetailView: UIView {
         commonInit()
     }
     
-    public func configureUI()    {
+    public func configureUI(user: User)    {
+        fullAdressLabel.text = "Address:\n\(user.location.city), \(user.location.state)\n\(user.location.street), \(user.location.postcode)"
         
+        let arrDOB = user.dob.date.components(separatedBy: "T")
+        
+        dobLabel.text = "DoB: \(arrDOB[0])"
+        
+        phoneLabel.text = "Phone Number: \(user.phone)"
     }
     
     private func commonInit()   {
